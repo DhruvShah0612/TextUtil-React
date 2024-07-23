@@ -1,6 +1,6 @@
 import React from "react";
 
-function About(props) {
+export default function About(props) {
   // const [myStyle, setMyStyle] = useState({
   //     color: 'black',
   //     backgroundColor: 'white'
@@ -105,5 +105,3 @@ function About(props) {
     </div>
   );
 }
-
-export default About;
