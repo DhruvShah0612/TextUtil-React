@@ -32,6 +32,35 @@ export default function TextForm(props) {
     props.showAlert("Extra space removed! ", "success");
   };
 
+  const heandleDownload = () => {
+    const element = document.createElement("a");
+    const file = new Blob([text], { type: "text/plain" });
+    element.href = URL.createObjectURL(file);
+    element.download = "text.txt";
+    document.body.appendChild(element);
+    element.click();
+    props.showAlert("Text Downloaded! ", "success");
+  };
+
+  const heandleCopyToClicpboard = () => {
+    navigator.clipboard.writeText(text);
+    props.showAlert("Copied to Clipboard! ", "success");
+  };
+
+  const heandleInverse = () => {
+    let newText = text.split("");
+    let newText1 = [];
+    for (let i = 0; i < newText.length; i++) {
+      if (newText[i] === newText[i].toUpperCase()) {
+        newText1.push(newText[i].toLowerCase());
+      } else {
+        newText1.push(newText[i].toUpperCase());
+      }
+    }
+    setText(newText1.join(""));
+    props.showAlert("Inverse Case! ", "success");
+  };
+
   const heandleOnChange = (event) => {
     setText(event.target.value);
   };
@@ -89,6 +118,30 @@ export default function TextForm(props) {
           onClick={heandleExtraSpaces}
         >
           Remove Extra Spaces
+        </button>
+
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={heandleDownload}
+        >
+          Download Text
+        </button>
+
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={heandleCopyToClicpboard}
+        >
+          Copy to Clipboard
+        </button>
+
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-1 my-1"
+          onClick={heandleInverse}
+        >
+          Inverse Case
         </button>
       </div>
       <div
