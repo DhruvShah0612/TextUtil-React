@@ -2,6 +2,12 @@
 
 TextUtil-React is a powerful text utility application built with React. It provides a variety of features to manipulate and analyze text efficiently and effectively.
 
+## Demo
+
+You can view a live demo of the application at:
+
+[https://text-util-react-plum.vercel.app/](https://text-util-react-plum.vercel.app/)
+
 ## Features
 
 - **Text Transformation**: Convert your text to uppercase, lowercase, or capitalize each word.
